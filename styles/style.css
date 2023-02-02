@@ -1,0 +1,171 @@
+body {
+    font-size: 15px;
+    font-weight: normal;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    margin: 0;
+    /* overflow: hidden; */
+    -ms-overflow-style: none;
+    /* HIDE SCROLLBAR FOR IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #252020;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+a:hover {
+    /* text-decoration:line-through; */
+    opacity: 0.6;
+}
+
+.header_links {
+    display: flex;
+    margin-left: 20px;
+}
+
+header a {
+    color: wheat;
+}
+
+header nav {
+    display: flex;
+    min-height: 50px;
+    width: 100%;
+    font-size: 15px;
+    align-items: center;
+    margin: 9px;
+}
+
+.login_logout {
+    display: flex;
+    margin-left: auto;
+}
+
+.login-main-ref {
+    margin-right: 10px;
+}
+
+.header_logo {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.header_logo img {
+    width: 50px;
+}
+
+footer {
+    background: #252020;
+    position: relative;
+    left: 0px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+footer img {
+    position: relative;
+    margin-top: 15px;
+    width: 50px;
+
+}
+
+footer ul {
+    margin: auto;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+footer ul li {
+    position: relative;
+    margin: 0px 20px;
+}
+
+main-cars {
+    float: left; /*Задаем обтекание*/
+    line-height: 120px; /*Высота строки +  верт. центрирования текста*/
+    font-size: 40px;
+    background: dodgerblue;
+    color: white;
+    margin-top: 60px;
+    width: 320px; /*Фиксируем ширину блока*/
+    margin-right: 10px;
+    text-align: center; /*Центрируем текст по горизонтали*/
+}
+
+.car-link {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.car-link:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.car-link.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.car-content {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    grid-row: 1/4;
+    grid-column: 2/3;
+}
+
+.main-about-text {
+    margin: 0% 20% 0% 20%;
+}
+
+
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,63 @@
+body{
+    font-size: 15px;
+    font-weight: normal;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    margin: 0;
+    /* overflow: hidden; */
+    -ms-overflow-style: none;  /* HIDE SCROLLBAR FOR IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+header{
+    background-color: #252020;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+a:hover{
+    /* text-decoration:line-through; */
+    opacity: 0.6;
+}
+
+.header_links{
+    display: flex;
+    margin-left: 20px;
+}
+
+header a{
+    color: wheat;
+    text-decoration: none;
+}
+
+header nav{
+    display: flex;
+    min-height: 50px;
+    width: 100%;
+    font-size: 15px;
+    align-items: center;
+    margin: 9px;
+}
+
+.login_logout{
+    display: flex;
+    margin-left: auto;
+}
+
+
+.header_logo{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.header_logo img{
+    width: 50px;
+}
