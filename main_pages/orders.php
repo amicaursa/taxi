@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <?php
+// Фиксация ошибок
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 require_once("../db+php/connect.php");
+// Проверка наличия/создания cookie на 2 дня
 if (!$_COOKIE['date'] || date('Y-m-d') > $_COOKIE['date']) {
-    setcookie("date", date('Y-m-d'), time() + (86400 * 2), "/"); //на 2 дня
+    setcookie("date", date('Y-m-d'), time() + (86400 * 2), "/"); 
     echo '<script> window.location.reload();</script>';
 };
 if (!$_COOKIE['type']) {
     setcookie("type", "Легковой", time() + (86400 * 2), "/"); //на 2 дня
     echo '<script> window.location.reload();</script>';
 };
+// Получение данных из trip и создание 3 одноименных массивов
 $sort_dates = mysqli_fetch_all(mysqli_query($connect, "SELECT car_user_id, date, road_time from trip"));
 $sort_dates_ids = array_column($sort_dates, 0);
 $sort_dates_start = array_column($sort_dates, 1);
@@ -25,7 +28,6 @@ $sort_dates_end = array_column($sort_dates, 2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заказ такси</title>
     <link rel="stylesheet" href="../styles/orders-style.css">
-    <!-- <script src="../scripts/order.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
@@ -94,7 +96,7 @@ $sort_dates_end = array_column($sort_dates, 2);
         <?php session_start();
         require_once("../db+php/connect.php");
         if (!$_SESSION['user']) {
-            header('Location: ../profile/login.php');
+            header('Location:../profile/login.php');
         }
         if ($_SESSION['order']['approve']) {
             echo '<div class="done" align="center"> <h2>Заказ успешно оформлен!</h2></div>';
@@ -106,9 +108,12 @@ $sort_dates_end = array_column($sort_dates, 2);
             <div>
                 <label for="ord-car-type">Выберите тип автомобиля:</label>
                 <select class="ord-car-type" name="car_type" id="car-type">
+                    <option>Эконом</option>
+                    <option>Комфорт</option>
+                    <option>Рандом</option>
+                    <option>Премиум</option>
+                    <option>Электрический</option>
                     <option>Грузовой</option>
-                    <option>Легковой</option>
-                    <option>Бизнес-класс</option>
                 </select>
             </div>
             <div>
