@@ -1,10 +1,3 @@
-// var slider = document.getElementById("myRange");
-//     var output = document.getElementById("dur-days");
-//     output.innerHTML = slider.value;
-//     slider.oninput = function() {
-//         output.innerHTML = this.value;
-//     }
-    //pop-up
     let popupBg = document.querySelector('.popup__bg'); // Фон попап окна
     let popup = document.querySelector('.popup'); // Само окно
     let openPopupButtons = document.querySelectorAll('.open-popup'); // Кнопки для показа окна
@@ -26,16 +19,3 @@
             popup.classList.remove('active'); // И с окна
         }
     });
-
-// function ftch(){
-//     let a = $('get-form').serialize();
-//     alert(a);
-//     let ft = await fetch('../queries/order-get.php?id=1')
-//     .then((response) => {
-//     return response.json();
-//     })
-//     .then((data) => {
-//     console.log(data);
-//     return data;
-//     });
-// }

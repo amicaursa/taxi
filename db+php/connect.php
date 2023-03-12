@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect('127.0.0.1', 'root', '', 'taxi');
+$connect = mysqli_connect('localhost', 'root', '', 'taxi');
 //адрес сервера, имя пользователя, пароль, имя базы данных
 if ($connect == false){
     print("Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error());

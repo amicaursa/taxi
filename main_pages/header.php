@@ -46,7 +46,7 @@
                             Логин
                         </a>';
                     } else {
-                        echo '<a href="../profile/profile.php" >Привет, '. $_SESSION['user']['all']["name"] . ' </a>';
+                        echo '<a href="../profile/profile.php" >'. $_SESSION['user']['all']["name"] . ' </a>';
                     }
                     ?>
                 </div>
