@@ -1,48 +1,21 @@
 html, body, #root, #wrapper, .uwa-capture {
     height: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
-
-.one {
-    display: inline;
-}
-  
-  .two {
-    display: block;
-    height: 100%;
-  }
   
   .container {
     min-width: 992px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     height: 100%;
-    max-height: 100%;
-    overflow: hidden;
     width: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
+    overflow: hidden;
     flex-direction: row;
-    padding-left: 36px;
-    padding-right: 36px;
-    padding-top: 2%;
   }
   
   .right-block {
     box-sizing: content-box;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
     flex: 1;
-    height: unset;
-    padding-bottom: 40px;
     position: static;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -51,37 +24,18 @@ html, body, #root, #wrapper, .uwa-capture {
   }
   
   .left-block {
-    box-sizing: content-box;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
     height: 100%;
     pointer-events: auto;
     flex: 1;
     overflow-y: auto;
     position: static;
-    margin-top: unset;
-    max-width: 400px;
     min-height: unset;
     z-index: unset;
-    padding-right: 36px;
+    max-width: 400px;
+    padding-right: 5%;
   }
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
 
 .span_style {
  max-height: 100%;
@@ -89,15 +43,7 @@ html {
 }
 
 .div_1span {
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-}
-
-.section_class {
+    padding: 2%; /* Добавление отступов вокруг контейнера div_1span */
     border-left-width: 2px;
     border-top-width: 2px;
     border-right-width: 2px;
@@ -106,17 +52,10 @@ html {
     border-top-style: solid;
     border-right-style: solid;
     border-bottom-style: solid;
-    border-left-color: #000000;
-    border-right-color: #000000;
-    border-top-color: #000000;
-    border-bottom-color: #000000;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    background-color: #FFFFFF;
-    overflow: hidden;
-    position: relative;
 }
 
 .div_in_section_l1 {
@@ -126,46 +65,22 @@ html {
     margin-bottom: 16px;
 }
 
-.div_in_section_l2 {
-    display: block;
-    margin-bottom: 16px;
-    color: #000000;
-    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 24px;
+.div_in_section_l3 input{
+  display: block;
+  margin-bottom: 10px; /* Добавление отступа между элементами input */
 }
 
-.div_in_section_l3 {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    max-height: 600px;
-    overflow: hidden;
-    -webkit-transition: max-height 300ms cubic-bezier(0.86, 0, 0.07, 1);
-    -moz-transition: max-height 300ms cubic-bezier(0.86, 0, 0.07, 1);
-    transition: max-height 300ms cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-.div_in_section_l4 {
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-}
-
-.buttom_mpos {
-  font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 24px;
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  margin-top: 0px;
-}
+#order-btn {
+  padding: 10px 20px; /* Добавление отступов внутри кнопки */
+  background-color: #007bff; /* Установка цвета фона для кнопки */
+  color: #fff; /* Установка цвета текста для кнопки */
+  border:none; /* Удаление границы для кнопки */
+  border-radius: 5px; /* Установка радиуса границы для кнопки */
+  cursor: pointer; /* Установка курсора при наведении на кнопку */
+  font-size: 16px; /* Установка размера шрифта для кнопки */
+  transition: background-color 0.3s ease; /* Добавление плавного перехода для цвета фона при наведении на кнопку */
+  }
+  
+  #order-btn:hover {
+  background-color: #0069d9; /* Изменение цвета фона при наведении на кнопку */
+  }
