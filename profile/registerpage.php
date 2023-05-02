@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Moz-Is-Generator" content="true">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Registration</title>
+
     <link rel="stylesheet" href="../styles/register-style.css">
 
      <!-- bootstrap -->
@@ -17,12 +21,12 @@
 <body>
     <main>
     <?php session_start()?>
-        <h2 align="center">Регистрация</h2>
+        <h1 style = "margin-top: 1%;" align="center"><strong>Регистрация</strong></h1>
         <div class="container">
             <form action="./regin.php" method="post" class="post-form">
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-name">Введите имя:</label>
+                        <label for="POST-name"><strong>Имя:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-name" type="text" name="name" placeholder="Имя">
@@ -30,7 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-surname">Введите фамилию:</label>
+                        <label for="POST-surname"><strong>Фамилия:</strong></label>
 
                     </div>
                     <div class="col-75">
@@ -39,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-phone">Введите номер телефона:</label>
+                        <label for="POST-phone"><strong>Номер телефона:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-phone" type="tel" name="phone" placeholder="Номер телефона">
@@ -47,7 +51,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-login">Придумайте логин:</label>
+                        <label for="POST-login"><strong>Логин:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-login" type="text" name="login" placeholder="Имя пользователя">
@@ -55,7 +59,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-password">Придумайте пароль:</label>
+                        <label for="POST-password"><strong>Пароль:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-password" type="password" name="password" placeholder="Пароль">
@@ -63,7 +67,9 @@
                 </div>
                 <div class="row">
                     <input type="submit" value="Подтвердить">
-                    <a href="../profile/login.php">Войти</a>
+                </div>
+                <div class="row">
+                    <a style="text-decoration: none;" href="../profile/login.php">Войти</a>
                 </div>
             </form>
         </div>
@@ -75,10 +81,10 @@
     </main>
 
     <footer class="footer mt-auto py-3 bg-dark">
-                <div class="container">
-                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
-                </div>
-            </footer>  
+        <div class="container">
+            <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+        </div>
+    </footer>  
 
 </body>
 
