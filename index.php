@@ -7,12 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Amica taxi</title>
+    <title>Amica Taxi</title>
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- style css -->
     <link rel="stylesheet" href="styles/style.css">
 
+    <!-- Подключение библиотеки jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/plugins/pikaday-i18n.js"></script>
+
+
+    <!-- Подключение библиотеки jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+    <!-- Подключение плагина Timepicker от jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
+
+    <!-- 2gis -->
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+   
+    <!-- Скрипты в теге -->
+    <!-- 2gis -->
     <script type="text/javascript">
             var map;
             
@@ -28,13 +52,46 @@
                 }).addTo(map);
             });
         </script>
+    <!-- Datepicker -->
+    <script>
+   $(function() {
+    var picker = new Pikaday({
+        field: document.querySelector('.datepicker'),
+        format: 'DD.MM.YYYY', // Формат вывода даты в русской локали
+        i18n: {
+            previousMonth : 'Предыдущий месяц',
+            nextMonth     : 'Следующий месяц',
+            months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+            weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+            weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+        },
+        onSelect: function(date) {
+            console.log(date);
+        }
+    });
+});
+    </script>
+
+    <!-- Timepicker -->
+    <script>
+    $(function() {
+        $('#timep').timepicker({
+            timeFormat: 'HH:mm',
+            interval: 30,
+            dropdown: true,
+            scrollbar: true,
+            minTime: '00:00',
+            maxTime: '23:59'
+        });
+    });
+</script>
 </head>
 
 <body>
     <?php session_start(); ?>   
-        <nav class="navbar sticky-top navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Amica taxi</a>
+                <a class="navbar-brand" href="#">Amica Taxi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -74,8 +131,8 @@
                                                     <input type="text" placeholder="Место посадки"/>
                                                     <input type="text" placeholder="Место прибытия"/>
                                                     <input type="text" placeholder="Цена"/>
-                                                    <input type="date" placeholder="Дата поездки"/>
-                                                    <input type="time" placeholder="Время поездки"/>
+                                                    <input type="text" class="datepicker" placeholder="Дата поездки"/>
+                                                    <input type="text" class="timepicker" placeholder="Время поездки"/>
                                         </div>
                                         <button id = "order-btn">Заказать</button> 
                             </div>
@@ -86,44 +143,52 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Вопрос #1
+                            Как заказать такси?
                         </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            Заполните все поля формы "Заказ поездки" и нажмите кнопку "Заказать"
                         </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Вопрос #2
+                            Как отследить статус заказа?
                         </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            На странице "Заказы" отображен статус вашего заказа на данный момент и все предыдущие поездки
                         </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Вопрос #3
+                            Какой способ оплаты?
                         </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            На данный момент принимается только наличный способ оплаты
                         </div>
                         </div>
                     </div>
                     </div>
             </div>
             <div class="right-block" src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full" id="map">
+            </div>
         </div>
+        <br>
+        <footer class="footer mt-auto py-3 bg-dark">
+                <div class="container">
+                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+                </div>
+            </footer>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="scripts/index.js"></script>
+
   </body>
 </html>

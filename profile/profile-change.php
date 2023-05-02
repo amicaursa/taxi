@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Таксупер</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="../styles/profile-change-style.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -15,8 +20,39 @@
         if (!$_SESSION['user']) {
             header('Location: ../profile/login.php');}
             ?>
-<?php include "../main_pages/header.php" ?>
     <main>
+    <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.php">Amica Taxi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="../profile/login.php">Логин</a>
+                        <?php
+                            if (!$_SESSION['user']) {
+                            echo '<a href="profile/login.php">
+                            </a>';
+                            } else {
+                            echo '<a href="../profile/profile.php" >'. $_SESSION['user']['all']["name"] . ' </a>';
+                            }
+                        ?>
+                        <a class="nav-link" href="../profile/registerpage.php" tabindex="-1">Регистрация</a>
+                        <?php
+                            if (!$_SESSION['user']) {
+                                echo '<a href="../profile/registerpage.php">
+                                    </a>';
+                            }
+                            else{
+                                echo '<a href="../profile/singout.php" class="header_links">Выйти</a>';
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br>
         <h2 align="center">Изменение профиля</h2>
         <div class="container">
             <form action="../profile/updateprofile.php" method="post" class="post-form">
@@ -73,8 +109,11 @@
             unset($_SESSION['reg_message']);
         }?>
     </main>
-
-    <?php include "../main_pages/footer.php" ?>
+    <footer class="footer mt-auto py-3 bg-dark">
+                <div class="container">
+                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+                </div>
+            </footer>  
 
 </body>
 

@@ -1,11 +1,7 @@
 
-
-* {
-  box-sizing: border-box;
-  
-}
-body{
-    background-color: white;
+html, body, #root, #wrapper, .uwa-capture {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 input[type=text], select, textarea, input[type=tel], input[type=password] {

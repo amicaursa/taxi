@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Таксупер</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="../styles/register-style.css">
+
+     <!-- bootstrap -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -69,7 +74,11 @@
         }?>
     </main>
 
-    <?php include "../main_pages/footer.php" ?>
+    <footer class="footer mt-auto py-3 bg-dark">
+                <div class="container">
+                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+                </div>
+            </footer>  
 
 </body>
 
