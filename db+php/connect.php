@@ -4,9 +4,6 @@ $connect = mysqli_connect('localhost', 'root', '', 'taxi');
 if ($connect == false){
     print("Ошибка: Невозможно подключиться к MySQL " . mysqli_connect_error());
 }
-else {
-    print("Соединение установлено успешно");
-}
 
 // $connect = mysqli_connect('localhost', 'dokukinemi_taxi2', 'qqqqqqqq000Q', 'dokukinemi_taxi2'); 
 // //адрес сервера, имя пользователя, пароль, имя базы данных

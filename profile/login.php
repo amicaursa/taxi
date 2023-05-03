@@ -34,6 +34,11 @@
                 </div>
                 <div class="col-75">
                     <input id="POST-login" type="text" name="login" placeholder="Имя пользователя">
+                    <?php 
+                        if (isset($_POST['login'])) {
+                        $username = $_POST['login'];
+                        setcookie('username', $username, time() + 3600, '/'); // Cookie с запоминанием логина на 1 час (доступен на всем сайте)
+                        }?>
                 </div>
             </div>
             <div class="row">

@@ -26,8 +26,4 @@ $user = mysqli_fetch_assoc($check_user);
         $_SESSION['log_fail'] = "Введён неверный логин или пароль";
         header('Location: ../profile/login.php');
     }
-
-
-
 ?>
-

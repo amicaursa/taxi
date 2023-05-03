@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Moz-Is-Generator" content="true">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Edit Profile</title>
+
     <link rel="stylesheet" href="../styles/profile-change-style.css">
 
     <!-- bootstrap -->
@@ -53,12 +55,12 @@
             </div>
         </nav>
         <br>
-        <h2 align="center">Изменение профиля</h2>
+        <h1 align="center">Редактирование профиля</h1>
         <div class="container">
             <form action="../profile/updateprofile.php" method="post" class="post-form">
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-name">Изменить имя:</label>
+                        <label for="POST-name"><strong>Изменить имя:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-name" type="text" name="name" value='<?php echo $_SESSION['user']['all']['name'];?>'>
@@ -66,7 +68,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-surname">Изменить фамилию:</label>
+                        <label for="POST-surname"><strong>Изменить фамилию:</strong></label>
 
                     </div>
                     <div class="col-75">
@@ -75,7 +77,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-phone">Изменить номер телефона:</label>
+                        <label for="POST-phone"><strong>Изменить номер телефона:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-phone" type="tel" name="phone" value='<?php echo $_SESSION['user']['all']['phone_number'];?>'>
@@ -83,7 +85,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-login">Изменить пароль:</label>
+                        <label for="POST-login"><strong>Изменить пароль:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-login" type="password" name="password" value=''>
@@ -91,7 +93,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-password">Повторите пароль:</label>
+                        <label for="POST-password"><strong>Повторите пароль:</strong></label>
                     </div>
                     <div class="col-75">
                         <input id="POST-password" type="password" name="password_check" value=''>

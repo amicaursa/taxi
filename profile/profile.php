@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Moz-Is-Generator" content="true">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Профиль</title>
+    
     <link rel="stylesheet" href="../styles/profile-style.css">
 
     <!-- bootstrap -->
@@ -20,43 +23,58 @@
             header('Location: ../profile/login.php');}
             ?>
     <main>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.php">Amica Taxi</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="../profile/login.php">Логин</a>
-                        <?php
-                            if (!$_SESSION['user']) {
-                            echo '<a href="profile/login.php">
-                            </a>';
-                            } else {
-                            echo '<a href="../profile/profile.php" >'. $_SESSION['user']['all']["name"] . ' </a>';
-                            }
-                        ?>
-                        <a class="nav-link" href="../profile/registerpage.php" tabindex="-1">Регистрация</a>
-                        <?php
-                            if (!$_SESSION['user']) {
-                                echo '<a href="../profile/registerpage.php">
-                                    </a>';
-                            }
-                            else{
-                                echo '<a href="../profile/singout.php" class="header_links">Выйти</a>';
-                            }
-                        ?>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a>
+                                <?php
+                                    if (!$_SESSION['user']) {
+                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Dashboard</a>';
+                                    } else {
+                                    echo '<a href="../main_pages/orders.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a>
+                                <?php
+                                    if (!$_SESSION['user']) {
+                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
+                                    } else {
+                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["name"] . ' </a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a> <?php
+                                    if (!$_SESSION['user']) {
+                                        echo '<a href="../profile/registerpage.php" style="text-decoration: none;" class="nav-link" >Регистрация</a>';
+                                    }
+                                    else{
+                                        echo '<a href="../profile/singout.php" style="text-decoration: none;" class="nav-link" >Выйти</a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                        </ul>
                 </div>
             </div>
         </nav>
-        <h2 align="center">Профиль</h2>
+        <br>
+        <h1 align="center">Профиль</h1>
         <div class="container">
             <form action="../profile/profile-change.php" method="post" class="post-form">
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-name">Имя:</label>
+                        <label for="POST-name"><strong>Имя:</strong></label>
                     </div>
                     <div class="col-75">
                         <?php echo '
@@ -66,7 +84,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-surname">Фамилия:</label>
+                        <label for="POST-surname"><strong>Фамилия:</strong></label>
                     </div>
                     <div class="col-75">
                     <?php echo '
@@ -76,7 +94,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-phone">Номер телефона:</label>
+                        <label for="POST-phone"><strong>Номер телефона:</strong></label>
                     </div>
                     <div class="col-75">
                     <?php echo '
@@ -86,7 +104,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="POST-login">Логин:</label>
+                        <label for="POST-login"><strong>Логин:</strong></label>
                     </div>
                     <div class="col-75">
                     <?php echo '
@@ -156,10 +174,10 @@
         </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark">
-                <div class="container">
-                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
-                </div>
-            </footer>  
+        <div class="container">
+            <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+        </div>
+    </footer>  
 </body>
 
 </html>
