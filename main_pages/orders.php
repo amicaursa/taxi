@@ -9,8 +9,21 @@
 
     <title>Панель заказов</title>
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключение библиотеки jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Подключение библиотеки jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
     <link rel="stylesheet" href="../styles/dashboard-style.css">
+
     </head>
     <body>
     <?php session_start(); ?>   
@@ -58,13 +71,18 @@
                         </ul>
                 </div>
             </div>
-        </nav>
-        <h1>Панель заказов</h1>
+    </nav>
+    <div id="timer"></div>
+    <div class="container mt-5">
         <div class="orders-container">
-            <div class="orders-grid"></div><br>
+            <h2>Дэшборд заказов - страница 1</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 orders-grid"></div>
             <div class="pagination"></div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="../scripts/orderv2.js"></script>
+    </div>
+       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/orderv2.js"></script>
     </body>
 </html>

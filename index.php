@@ -18,19 +18,9 @@
     <!-- Подключение библиотеки jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Datepicker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/plugins/pikaday-i18n.js"></script>
-
-
     <!-- Подключение библиотеки jQuery UI -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-
-    <!-- Подключение плагина Timepicker от jQuery UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
 
     <!-- 2gis -->
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
@@ -52,43 +42,10 @@
                 }).addTo(map);
             });
         </script>
-    <!-- Datepicker -->
-    <script>
-   $(function() {
-    var picker = new Pikaday({
-        field: document.querySelector('.datepicker'),
-        format: 'DD.MM.YYYY', // Формат вывода даты в русской локали
-        i18n: {
-            previousMonth : 'Предыдущий месяц',
-            nextMonth     : 'Следующий месяц',
-            months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-            weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
-            weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
-        },
-        onSelect: function(date) {
-            console.log(date);
-        }
-    });
-});
-    </script>
-
-    <!-- Timepicker -->
-    <script>
-    $(function() {
-        $('#timep').timepicker({
-            timeFormat: 'HH:mm',
-            interval: 30,
-            dropdown: true,
-            scrollbar: true,
-            minTime: '00:00',
-            maxTime: '23:59'
-        });
-    });
-</script>
 </head>
 
 <body>
-    <?php session_start(); ?>  
+    <?php session_start() ?>  
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">Amica Taxi</a>
@@ -139,17 +96,15 @@
             <div class="left-block">
                 <span class="span_style" style="max-height: 100%">
                     <div class="div_1span">
-                            <div class="div_in_section_l1">
                                 <h1>Заказ поездки:</h1>
-                                        <div class="div_in_section_l3">
-                                                    <input type="text" placeholder="Место посадки"/>
-                                                    <input type="text" placeholder="Место прибытия"/>
-                                                    <input type="text" placeholder="Цена"/>
-                                                    <input type="text" class="datepicker" placeholder="Дата поездки"/>
-                                                    <input type="text" class="timepicker" placeholder="Время поездки"/>
-                                        </div>
-                                        <button id = "order-btn">Заказать</button> 
-                            </div>
+                                    <form action="main_pages/process_order.php" method="POST" class="post-form">
+                                                    <input name="place_plant" type="text" placeholder="Место посадки"/>
+                                                    <input name="place_arrival" type="text" placeholder="Место прибытия"/>
+                                                    <input name="payment" type="number" placeholder="Цена"/>
+                                                    <input name="date_p" type="date"  placeholder="Дата поездки"/>
+                                                    <input name="time_p" type="time" placeholder="Время поездки"/>
+                                        <input type="submit" value="Заказать">
+                                    </form>
                     </div>
                 </span>
                 <br>

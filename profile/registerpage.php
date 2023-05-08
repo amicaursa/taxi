@@ -23,7 +23,7 @@
     <?php session_start()?>
         <h1 style = "margin-top: 1%;" align="center"><strong>Регистрация</strong></h1>
         <div class="container">
-            <form action="./regin.php" method="post" class="post-form">
+            <form action="regin.php" method="post" class="post-form">
                 <div class="row">
                     <div class="col-25">
                         <label for="POST-name"><strong>Имя:</strong></label>

@@ -56,18 +56,8 @@ html, body, #root, #wrapper, .uwa-capture {
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-}
-
-.div_in_section_l1 {
-    margin-left: 16px;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-}
-
-.div_in_section_l3 input{
-  display: block;
-  margin-bottom: 10px; /* Добавление отступа между элементами input */
+    display: block;
+    margin-bottom: 10px; /* Добавление отступа между элементами input */
 }
 
 #order-btn {
