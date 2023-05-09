@@ -6,13 +6,11 @@ if (!$connect) {
     die("Ошибка подключения: " . mysqli_connect_error());
 }
 
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-$phone = $_POST['phone_number'];
 $login = $_POST['login'];
 $pass = $_POST['password'];
+$phone = $_POST['phone_number'];
 
-if (empty($name) || empty($surname) || empty($phone) || empty($login) || empty($pass)) {
+if (empty($phone) || empty($login) || empty($pass)) {
     $_SESSION['reg_message'] = "Пожалуйста, заполните все поля";
     header('Location: ../profile/registerpage.php');
     exit();
@@ -25,7 +23,7 @@ if (empty($name) || empty($surname) || empty($phone) || empty($login) || empty($
         header('Location: ../profile/registerpage.php');
         exit();
     } else {
-        mysqli_query($connect, "INSERT INTO user (`name`, employee_type_id, surname, phone_number, `login`, `password`) VALUES ('$name', 1, '$surname', '$phone', '$login', '$pass')");
+        mysqli_query($connect, "INSERT INTO user (employee_type_id, phone_number, `login`, `password`) VALUES (1, '$phone', '$login', '$pass')");
         $all_info = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `user` WHERE `login` = '$login'"));//all info
         $_SESSION['user'] = ["all" => $all_info];
         header('Location: ../index.php');

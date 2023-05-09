@@ -23,34 +23,48 @@
             header('Location: ../profile/login.php');}
             ?>
     <main>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">Amica Taxi</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="../index.php" style="text-decoration: none;">Amica Taxi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="../profile/login.php">Логин</a>
-                        <?php
-                            if (!$_SESSION['user']) {
-                            echo '<a href="profile/login.php">
-                            </a>';
-                            } else {
-                            echo '<a href="../profile/profile.php" >'. $_SESSION['user']['all']["name"] . ' </a>';
-                            }
-                        ?>
-                        <a class="nav-link" href="../profile/registerpage.php" tabindex="-1">Регистрация</a>
-                        <?php
-                            if (!$_SESSION['user']) {
-                                echo '<a href="../profile/registerpage.php">
-                                    </a>';
-                            }
-                            else{
-                                echo '<a href="../profile/singout.php" class="header_links">Выйти</a>';
-                            }
-                        ?>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a>
+                                <?php
+                                    if (!$_SESSION['user']) {
+                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Dashboard</a>';
+                                    } else {
+                                    echo '<a href="../main_pages/orders.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a>
+                                <?php
+                                    if (!$_SESSION['user']) {
+                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
+                                    } else {
+                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a> <?php
+                                    if (!$_SESSION['user']) {
+                                        echo '<a href="../profile/registerpage.php" style="text-decoration: none;" class="nav-link" >Регистрация</a>';
+                                    }
+                                    else{
+                                        echo '<a href="../profile/singout.php" style="text-decoration: none;" class="nav-link" >Выйти</a>';
+                                    }
+                                ?>
+                                </a>
+                            </li>
+                        </ul>
                 </div>
             </div>
         </nav>

@@ -5,33 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-Moz-Is-Generator" content="true">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registration</title>
-    <link rel="stylesheet" href="../styles/register-style.css">
+    <link rel="stylesheet" href="../styles/reg-login-style.css">
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="text-center">
     <?php session_start()?>
-    <main>
-        <h1 style="margin-top: 1%;" align="center"><strong>Регистрация</strong></h1>
-        <div class="container">
+    <main class="form-signin">
             <form action="regin.php" method="POST" class="post-form">
-                <input name="name" type="text" maxlength="30" placeholder="Имя" required>
-                <input name="surname" type="text" maxlength="45" placeholder="Фамилия" required>
-                <input name="phone_number" type="tel" maxlength="15" placeholder="Номер телефона" required>
-                <input name="login" type="text" maxlength="45" placeholder="Имя пользователя" required>
-                <input name="password" type="password" maxlength="45" placeholder="Пароль" required>
-                <input type="submit" value="Подтвердить">
+                <img class="mb-4" src="../pics/logo.png" alt="" width="100" height="100">
+                <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+                <!-- <div class="form-floating">
+                <input name="name" type="text" maxlength="30" placeholder="Имя" required  class="form-control" id="floatingInput">
+                <label for="floatingInput">Имя</label>
+                </div> -->
+                <div class="form-floating">
+                <input name="phone_number" type="tel" maxlength="15" placeholder="Номер телефона" required  class="form-control" id="floatingInput">
+                <label for="floatingInput">Номер телефона</label>
+                </div>
+
+                <div class="form-floating">
+                <input name="login" type="text" maxlength="45" placeholder="Имя пользователя" required  class="form-control" id="floatingInput">
+                <label for="floatingInput">Логин</label>
+                </div>
+                <div class="form-floating  mb-4">
+                <input name="password" type="password" maxlength="45" placeholder="Пароль" required  class="form-control" id="floatingPassword">
+                <label for="floatingPassword">Пароль</label>
+                </div>
+                <button class="w-100 mb-3 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
                 <div class="row">
                     <a style="text-decoration: none;" href="../profile/login.php">Войти</a>
                 </div>
+                <p class="mt-3 mb-3 text-muted">&copy; 2022-2023</p>
             </form>
-        </div>
         <?php 
         if (isset($_SESSION['reg_message'])) {
             echo '<div align="center" style="margin-bottom:15px;">' . $_SESSION['reg_message'] . '</div>';
@@ -39,12 +65,7 @@
         }?>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-dark">
-        <div class="container">
-            <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
-        </div>
-    </footer>  
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-</html>
+</html> 

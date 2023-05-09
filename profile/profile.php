@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Профиль</title>
+    <title>Profile</title>
     
     <link rel="stylesheet" href="../styles/profile-style.css">
 
@@ -48,7 +48,7 @@
                                     if (!$_SESSION['user']) {
                                     echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
                                     } else {
-                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["name"] . ' </a>';
+                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
                                     }
                                 ?>
                                 </a>
@@ -88,7 +88,7 @@
                     <?php echo '
                         <p class="profile-field-about">' . $_SESSION['user']['all']['login'] . '</p>'
                         ?>
-                <div class="row">
+                <div class="row mb-3">
                     <input type="submit" value="Изменить профиль">
                 </div>
             <?php

@@ -70,12 +70,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Moz-Is-Generator" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
 
-    <link rel="stylesheet" href="../styles/login-style.css">
+    <link rel="stylesheet" href="../styles/reg-login-style.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -97,7 +97,7 @@
     </style>
 </head>
 
-<body class="text-center style='background-color: #C6C6C6;'">
+<body class="text-center">
     <?php session_start(); ?>
 
     <main class="form-signin">

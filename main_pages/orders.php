@@ -29,7 +29,7 @@
     <?php session_start(); ?>   
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">Amica Taxi</a>
+                <a class="navbar-brand" href="../index.php" style="text-decoration: none;">Amica Taxi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,7 +52,7 @@
                                     if (!$_SESSION['user']) {
                                     echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
                                     } else {
-                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["name"] . ' </a>';
+                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
                                     }
                                 ?>
                                 </a>
