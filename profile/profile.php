@@ -25,7 +25,7 @@
     <main>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">Amica Taxi</a>
+                <a class="navbar-brand" href="../index.php" style="text-decoration: none;">Amica Taxi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,46 +72,22 @@
         <h1 align="center">Профиль</h1>
         <div class="container">
             <form action="../profile/profile-change.php" method="post" class="post-form">
-                <div class="row">
-                    <div class="col-25">
                         <label for="POST-name"><strong>Имя:</strong></label>
-                    </div>
-                    <div class="col-75">
                         <?php echo '
                         <p class="profile-field-about">' . $_SESSION['user']['all']['name'] . '</p>'
                         ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
                         <label for="POST-surname"><strong>Фамилия:</strong></label>
-                    </div>
-                    <div class="col-75">
                     <?php echo '
                         <p class="profile-field-about">' . $_SESSION['user']['all']['surname'] . '</p>'
                         ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
                         <label for="POST-phone"><strong>Номер телефона:</strong></label>
-                    </div>
-                    <div class="col-75">
                     <?php echo '
                         <p class="profile-field-about">' . $_SESSION['user']['all']['phone_number'] . '</p>'
                         ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
                         <label for="POST-login"><strong>Логин:</strong></label>
-                    </div>
-                    <div class="col-75">
                     <?php echo '
                         <p class="profile-field-about">' . $_SESSION['user']['all']['login'] . '</p>'
                         ?>
-                    </div>
-                </div>
                 <div class="row">
                     <input type="submit" value="Изменить профиль">
                 </div>

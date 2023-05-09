@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 
-    <link rel="stylesheet" href="../styles/dashboard-style.css">
+    <!-- <link rel="stylesheet" href="../styles/dashboard-style.css"> -->
 
     </head>
     <body>
@@ -73,13 +73,22 @@
             </div>
     </nav>
     <div id="timer"></div>
-    <div class="container mt-5">
-        <div class="orders-container">
-            <h2>Дэшборд заказов - страница 1</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 orders-grid"></div>
-            <div class="pagination"></div>
+    <div id="timer"></div>
+        <div class="container mt-5">
+            <div class="orders-container">
+                <h2 align="center">Dashboard заказов</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 orders-grid mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-light">Заголовок заказа</h5>
+                            <p class="card-text text-light">Текст заказа</p>
+                            <a href="#" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
         </div>
-    </div>
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

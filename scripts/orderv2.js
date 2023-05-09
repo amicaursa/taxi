@@ -49,7 +49,7 @@ function renderPage(pageNumber, orders) {
   const pageOrders = orders.slice(startIndex, endIndex);
 
   const html = pageOrders.map(order => `
-    <div class="order-tile">
+    <div class="order-tile bg-dark">
       <h3>Заказ #${order.ID}</h3>
       <p><b>Место посадки:</b> ${order.place_plant}</p>
       <p><b>Место прибытия:</b> ${order.place_arrival}</p>

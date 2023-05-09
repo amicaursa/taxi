@@ -29,9 +29,6 @@ else{
     {
         $_SESSION['reg_message'] = "Пароли не совпадают :(";
         header('Location: ../profile/profile-change.php');
-
     }
-         
-
 }
 ?>
