@@ -12,8 +12,8 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- style css -->
-    <link rel="stylesheet" href="styles/style.css">
+    <!-- style css
+    <link rel="stylesheet" href="styles/style.css"> -->
 
     <!-- Подключение библиотеки jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -26,138 +26,147 @@
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
    
     <!-- Скрипты в теге -->
+    
     <!-- 2gis -->
     <script type="text/javascript">
-            var map;
-            
-            DG.then(function () {
-                map = DG.map('map', {
-                    zoomControl: false
-                }).setView([55.755864, 37.6176989], 13);  ;
+        var map;
+        
+        DG.then(function () {
+            map = DG.map('map', {
+                zoomControl: false
+            }).setView([55.755864, 37.6176989], 13);
 
-                DG.marker([55.755864, 37.617698]).addTo(map).bindPopup('Вы кликнули по мне!');
+            DG.marker([55.755864, 37.617698]).addTo(map).bindPopup('Вы кликнули по мне!');
 
-                DG.control.zoom({
-                    position: 'bottomright'
-                }).addTo(map);
-            });
-        </script>
+            DG.control.zoom({
+                position: 'bottomright'
+            }).addTo(map);
+        });
+    </script>
+    
+    <style>
+        #map {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 56px - 56px);
+            z-index: 1;
+        }
+        
+        .left-block {
+            position: fixed;
+            top: 56px;
+            left: 20px;
+            padding: 20px;
+            width: 375px;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 1); 
+            backdrop-filter: blur(95%); 
+            margin-left: 0.5%; 
+            margin-top: 2%; 
+            border-radius: 12px;
+        }
+        
+        .content-container {
+            position: fixed;
+            top: calc(56px + 1px);
+            bottom: 56px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+        }
+    </style>
 </head>
-
 <body>
     <?php session_start() ?>  
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 3;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">Amica Taxi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a>
                                 <?php
                                     if (!$_SESSION['user']) {
-                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Dashboard</a>';
+                                        echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Dashboard</a>';
                                     } else {
-                                    echo '<a href="main_pages/orders.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
+                                        echo '<a href="main_pages/orders.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
                                     }
                                 ?>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a>
                                 <?php
                                     if (!$_SESSION['user']) {
-                                    echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
+                                        echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
                                     } else {
-                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
+                                        echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
                                     }
                                 ?>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a> <?php
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a> 
+                                <?php
                                     if (!$_SESSION['user']) {
                                         echo '<a href="../profile/registerpage.php" style="text-decoration: none;" class="nav-link" >Регистрация</a>';
-                                    }
-                                    else{
+                                    } else {
                                         echo '<a href="../profile/singout.php" style="text-decoration: none;" class="nav-link" >Выйти</a>';
                                     }
                                 ?>
-                                </a>
-                            </li>
-                        </ul>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
         <br>
-        <div class="container">
-            <div class="left-block">
-                <span class="span_style" style="max-height: 100%">
-                    <div class="div_1span">
-                                <h1>Заказ поездки:</h1>
-                                    <form action="main_pages/process_order.php" method="POST" class="post-form">
-                                                    <input name="place_plant" type="text" placeholder="Место посадки"/>
-                                                    <input name="place_arrival" type="text" placeholder="Место прибытия"/>
-                                                    <input name="payment" type="number" placeholder="Цена"/>
-                                                    <input name="date_p" type="date"  placeholder="Дата поездки"/>
-                                                    <input name="time_p" type="time" placeholder="Время поездки"/>
-                                        <input type="submit" value="Заказать">
-                                    </form>
-                    </div>
-                </span>
-                <br>
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Как заказать такси?
-                        </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            Заполните все поля формы "Заказ поездки" и нажмите кнопку "Заказать"
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 left-block">
+                    <span class="span_style text-center" style="max-height: 100%">
+                        <div class="div_1span">
+                            <h1>Заказ поездки:</h1>
+                              <form action="main_pages/process_order.php" method="POST" class="post-form">
+                                <input name="place_plant" type="text" placeholder="Место посадки" class="form-control mb-2"/>
+                                <input name="place_arrival" type="text" placeholder="Место прибытия" class="form-control  mb-2"/>
+                                <input name="payment" type="number" placeholder="Цена" class="form-control  mb-2"/>
+                                <input name="date_p" type="date"  placeholder="Дата поездки" class="form-control  mb-2"/>
+                                <input name="time_p" type="time" placeholder="Время поездки" class="form-control  mb-2"/>
+                                <input type="submit" value="Заказать" class="btn btn-primary">
+                            </form>
                         </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Как отследить статус заказа?
-                        </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            На странице "Заказы" отображен статус вашего заказа на данный момент и все предыдущие поездки
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Какой способ оплаты?
-                        </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            На данный момент принимается только наличный способ оплаты
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-            <div class="right-block" src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full" id="map">
+                    </span>
+                </div>
+                <div class="col-9">
+                    <div id="map"></div>
+                </div>
             </div>
         </div>
         <br>
-        <footer class="footer mt-auto py-3 bg-dark">
-                <div class="container">
-                    <span class="text-muted">@Amica Taxi 2023 | Powered by: @amicaursa</span>
+        <footer class="footer mt-auto py-3 bg-dark" style="z-index: 3;">
+            <div class="container text-center">
+                <span class="text-muted">@Amica Taxi | Powered by: @amicaursa</span>
                 </div>
-            </footer>   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="scripts/index.js"></script>
-
-  </body>
+            </footer> 
+ <!-- bootstrap и другие скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-4jPxFj+YPb8JZgF2eJyxsf5VdS0OvrOBSpkoWqV7VG0VAmU3UAm+BAlCi8vV+bBE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datepicker/dist/datepicker.min.js"></script>
+    </body>
 </html>
+
+   

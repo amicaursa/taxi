@@ -2,75 +2,41 @@ html, body, #root, #wrapper, .uwa-capture {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
 }
-  
+.container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.right-block {
+  flex: 1;
+  position: static;
+  border-radius: 12px;
+}
+
+.left-block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  pointer-events: auto;
+  flex: 1;
+  overflow-y: auto;
+  position: static;
+  z-index: unset;
+  padding-right: 5%;
+}
+
+@media (max-width: 768px) {
   .container {
-    min-width: 992px;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    flex-direction: row;
-  }
-  
-  .right-block {
-    box-sizing: content-box;
     flex-direction: column;
-    flex: 1;
-    position: static;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
   }
   
   .left-block {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    pointer-events: auto;
-    flex: 1;
-    overflow-y: auto;
-    position: static;
-    min-height: unset;
-    z-index: unset;
-    max-width: 400px;
-    padding-right: 5%;
-  }
-
-.span_style {
- max-height: 100%;
- background-color: #FFFFFF;
-}
-
-.div_1span {
-    padding: 2%; /* Добавление отступов вокруг контейнера div_1span */
-    border-left-width: 2px;
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-style: solid;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    display: block;
-    margin-bottom: 10px; /* Добавление отступа между элементами input */
-}
-
-#order-btn {
-  padding: 10px 20px; /* Добавление отступов внутри кнопки */
-  background-color: #007bff; /* Установка цвета фона для кнопки */
-  color: #fff; /* Установка цвета текста для кнопки */
-  border:none; /* Удаление границы для кнопки */
-  border-radius: 5px; /* Установка радиуса границы для кнопки */
-  cursor: pointer; /* Установка курсора при наведении на кнопку */
-  font-size: 16px; /* Установка размера шрифта для кнопки */
-  transition: background-color 0.3s ease; /* Добавление плавного перехода для цвета фона при наведении на кнопку */
+    padding-right: 0;
   }
   
-  #order-btn:hover {
-  background-color: #0069d9; /* Изменение цвета фона при наведении на кнопку */
+  .right-block {
+    display: none;
   }
+}
