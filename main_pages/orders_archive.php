@@ -72,10 +72,9 @@
                 </div>
             </div>
     </nav>
-    <div id="timer"></div>
         <div class="container mt-4">
             <div class="orders-container">
-                <h2 align="center">Dashboard заказов</h2>
+                <h2 align="center">История поездок</h2>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 orders-grid mb-4 mt-1">
                 </div>
             </div>
@@ -83,6 +82,6 @@
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../scripts/orderv2.js"></script>
+    <script src="../scripts/orderv3.js"></script>
     </body>
 </html>

@@ -48,7 +48,7 @@
                                     if (!$_SESSION['user']) {
                                     echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Логин</a>';
                                     } else {
-                                    echo '<a href="../profile/profile.php"  style="text-decoration: none;"  class="nav-link">'. $_SESSION['user']['all']["login"] . ' </a>';
+                                        echo '<a href="../main_pages/orders_archive.php"  style="text-decoration: none;"  class="nav-link">История поездок</a>';
                                     }
                                 ?>
                                 </a>

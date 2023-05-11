@@ -6,9 +6,9 @@ if (!$connect) {
     die("Ошибка подключения: " . mysqli_connect_error());
 }
 
-$login = $_POST['login'];
-$pass = $_POST['password'];
-$phone = $_POST['phone_number'];
+$login = htmlspecialchars(mysqli_real_escape_string($connect, $_POST['login']), ENT_QUOTES, 'UTF-8');
+$pass = htmlspecialchars(mysqli_real_escape_string($connect, $_POST['password']), ENT_QUOTES, 'UTF-8');
+$phone = htmlspecialchars(mysqli_real_escape_string($connect, $_POST['phone_number']), ENT_QUOTES, 'UTF-8');
 
 if (empty($phone) || empty($login) || empty($pass)) {
     $_SESSION['reg_message'] = "Пожалуйста, заполните все поля";
