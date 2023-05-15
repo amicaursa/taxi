@@ -104,8 +104,12 @@
                                     if (!$_SESSION['user']) {
                                         echo '<a href="profile/login.php" style="text-decoration: none;" class="nav-link">Dashboard</a>';
                                     } else {
+                                        if ($_SESSION['user']['employee_type_id'] == '2') {
+                                            echo '<a href="main_pages/orders_vod.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
+                                        } else {
                                         echo '<a href="main_pages/orders.php"  style="text-decoration: none;"  class="nav-link">Dashboard</a>';
                                     }
+                                }
                                 ?>
                             </a>
                         </li>
@@ -127,6 +131,15 @@
                                         echo '<a href="../profile/registerpage.php" style="text-decoration: none;" class="nav-link" >Регистрация</a>';
                                     } else {
                                         echo '<a href="../profile/singout.php" style="text-decoration: none;" class="nav-link" >Выйти</a>';
+                                    }
+                                ?>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a> 
+                                <?php
+                                    if (!$_SESSION['user']) {
+                                        echo '<a href="../profile/registerpage_vod.php" style="text-decoration: none;" class="nav-link">Стать водителем</a>';
                                     }
                                 ?>
                             </a>

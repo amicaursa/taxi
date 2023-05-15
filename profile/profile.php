@@ -91,6 +91,7 @@
                 <div class="row mb-3">
                     <input type="submit" value="Изменить профиль">
                 </div>
+                </form>
             <?php
             if($_SESSION['user']['all']['employee_type_id'] != 1 && $_SESSION['user']['all']['employee_type_id'] != 3 )
             {
@@ -102,8 +103,13 @@
                 if($add_info['med_book'] == NULL){
                     $add_info['med_book'] = 'Отсутствует';
                 }
+                if($add_info['SNILS'] == NULL){
+                    $add_info['SNILS'] = 'Отсутствует';
+                }
+                if($add_info['passport_id'] == NULL){
+                    $add_info['passport_id'] = 'Отсутствует';
+                }
             echo'
-            </form>
             <form action="../profile/profile-change.php" method="post" class="post-form" style="margin-left: 30px;">
                 <div class="row">
                     <div class="col-25">
